@@ -1,0 +1,32 @@
+Hopefully
+<?php
+header("content-type:text/html;charset=utf-8");         //设置编码
+
+?>		    		
+<?php
+//$servername = "localhost";
+//$username = "root";
+//$password = "123456";
+//
+//// 创建连接
+//$conn = new mysqli($servername, $username, $password);
+//// 检测连接
+//if ($conn->connect_error) {
+//    die("连接失败: " . $conn->connect_error);
+//}
+//echo "连接成功";
+//?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "123456";
+
+// 创建连接
+$conn = mysqli_connect($servername, $username, $password);
+
+// 检测连接
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "连接成功";
+?>
