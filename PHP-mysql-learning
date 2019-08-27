@@ -1,32 +1,60 @@
+1.Php中文乱码问题
+<?php
+header("content-type:text/html;charset=utf-8");         //设置编码
+
+?>
+2.连接服务器 Mysqli 面向对象
 Hopefully
 <?php
 header("content-type:text/html;charset=utf-8");         //设置编码
 
-?>		    		
-<?php
-//$servername = "localhost";
-//$username = "root";
-//$password = "123456";
-//
-//// 创建连接
-//$conn = new mysqli($servername, $username, $password);
-//// 检测连接
-//if ($conn->connect_error) {
-//    die("连接失败: " . $conn->connect_error);
-//}
-//echo "连接成功";
-//?>
+?>
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "123456";
 
 // 创建连接
-$conn = mysqli_connect($servername, $username, $password);
-
+$conn = new mysqli($servername, $username, $password);
 // 检测连接
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("连接失败: " . $conn->connect_error);
 }
 echo "连接成功";
 ?>
+3.连接服务器 Mysqli 面向过程
+<?php
+//$servername = "localhost";
+//$username = "root";
+//$password = "123456";
+//
+//// 创建连接
+//$conn = mysqli_connect($servername, $username, $password);
+//
+//// 检测连接
+//if (!$conn) {
+//    die("Connection failed: " . mysqli_connect_error());
+//}
+//echo "连接成功";
+//?>
+<?php
+4.PDO连接MYSQL
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "123456";
+
+try {
+    $conn = new PDO("mysql:host=$servername;", $username, $password);
+    echo "连接成功";
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+}
+?>
+//都是菜鸟的源码都可以用 记住使用这些代码一定在MyPHPStudy的环境下才可以被使用！也就是要放在
+//网站根目录 其中一个可以用的网站下 这样才融入了 环境 否则 单独在桌面上用游览器运行 会出现找不到 
+//PDO 和 MYSQLI模块的错误 就是没有这些环境
+
+
